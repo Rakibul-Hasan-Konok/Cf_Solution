@@ -1,2 +1,1 @@
-
-    while (t--) {
+int i = 1; i <= min(n, 30LL); ++i
