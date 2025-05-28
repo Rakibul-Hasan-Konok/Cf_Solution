@@ -1,11 +1,10 @@
-t = int(input())
-for _ in range(t):
-    n = int(input())
-    a = list(map(int, input().split()))
-    s = sum(a)
-    if s == n:
-        print(0)
-    elif s > n:
-        print(s - n)
+import math 
+test=int(input());
+for i in range(test):
+    s=int(input())
+    ss = int(math.sqrt(s));
+    if ss*ss == s:
+        print(ss//2,ss-ss//2)
     else:
-        print(1)
+        print("-1")
+

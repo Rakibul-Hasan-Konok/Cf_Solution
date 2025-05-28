@@ -1,62 +1,30 @@
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// int main() {
-//     int t;
-//     cin >> t;
-//     while (t--) {
-//        long long int n,k,md=0,ml=1;
-//         cin>>n>>k;
-//         int arr[n];
-//         bool ok=false;
-//         for(int i=0;i<n;i++){
-//             cin>>arr[i];
-//             if(arr[i]%k==0) ok=true;
-//             md=max(md,arr[i]%k);
-//             ml*=arr[i];
-//         }
-//         if(k==4 || k==3){
-//             cout<<(ml%4==0? 0 : k-ml)<<endl;
-//         }
-//         else if(ok) cout<<0<<endl;
-//         else{
-//             cout<<k-ml<<endl;
-//         }
-
-        
-//     }
-//     return 0;
-// }
-
-
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int main() {
     int t;
     cin >> t;
     while (t--) {
-       long long int n,k,x,y,z,ans;
-        cin>>n>>k;
-        long long int sub[2] = {0};
-        ans = k;
-        for(int i=0;i<n;i++){
-           cin>>x;
-           if(x%k)ans = min(ans,k-x%k);
-           else ans =0;
-           if(k==4)sub[x%2]++;
+        string s;
+        cin >> s;
+        int year = stoi(s);
+        bool found = false;
+        for (int i = 1; i < 4; ++i) {
+            string a_str = s.substr(0, i);
+            string b_str = s.substr(i);
+            int a = stoi(a_str);
+            int b = stoi(b_str);
+            int sum = a + b;
+            if (sum * sum == year) {
+                cout << a << " " << b << endl;
+                found = true;
+                break;
+            }
         }
-        if(k==4){
-            y = 0;
-            x = 2;
-            x -= min(x,sub[0]);
-            y = min(x,sub[1]);
-            x -= y;-
-            if(x==0)ans = min(y,ans);
-        }
-        cout<<ans<<endl;
 
-        
+        if (!found) {
+            cout << -1 << endl;
+        }
     }
     return 0;
 }
